@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: local-storage-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: local-demo
+  template:
+    metadata:
+      labels:
+        app: local-demo
+    spec:
+      containers:
+        - name: app
+          image: busybox
+          command: ['sh', '-c', 'echo "Hello local storage" > /mnt/data/message.txt && sleep 3600']
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          volumeMounts:
+            - name: local-storage
+              mountPath: /mnt/data
+      volumes:
+        - name: local-storage
+          persistentVolumeClaim: 
+            claimName: local-pvc         
