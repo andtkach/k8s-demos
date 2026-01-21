@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>K8S Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  
+  <header class="hero">
+    <h1>K8S Project</h1>
+    <p>nginx web + postgres db</p>
+  </header>
+
+  <main class="container">
+    <section class="grid">
+
+      <article class="card">
+        <h2>Services</h2>
+        <p>The <strong>web</strong> service is nginx serving this page on port <code>80</code>.</p>
+      </article>
+
+      <article class="card">
+        <h2>Volumes</h2>
+        <p>Files in <code>./html</code> are mounted into the container.</p>
+      </article>
+
+      <article class="card">
+        <h2>Networks</h2>
+        <p>The app can reach the database by host name <code>db</code> on port <code>5432</code>.</p>
+      </article>
+
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,37 @@
+apiVersion: v1
+data:
+  index.html: "<!doctype html>\r\n<html lang=\"en\">\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n
+    \ <title>K8S Demo</title>\r\n  <meta name=\"viewport\" content=\"width=device-width,
+    initial-scale=1\">\r\n  <link rel=\"stylesheet\" href=\"styles.css\">\r\n</head>\r\n\r\n<body>\r\n
+    \ \r\n  <header class=\"hero\">\r\n    <h1>K8S Project</h1>\r\n    <p>nginx web
+    + postgres db</p>\r\n  </header>\r\n\r\n  <main class=\"container\">\r\n    <section
+    class=\"grid\">\r\n\r\n      <article class=\"card\">\r\n        <h2>Services</h2>\r\n
+    \       <p>The <strong>web</strong> service is nginx serving this page on port
+    <code>80</code>.</p>\r\n      </article>\r\n\r\n      <article class=\"card\">\r\n
+    \       <h2>Volumes</h2>\r\n        <p>Files in <code>./html</code> are mounted
+    into the container.</p>\r\n      </article>\r\n\r\n      <article class=\"card\">\r\n
+    \       <h2>Networks</h2>\r\n        <p>The app can reach the database by host
+    name <code>db</code> on port <code>5432</code>.</p>\r\n      </article>\r\n\r\n
+    \   </section>\r\n  </main>\r\n</body>\r\n</html>\r\n"
+  styles.css: ":root {\r\n  --bg: #f8fafc;\r\n  --card: #ffffff;\r\n  --text: #0f172a;\r\n
+    \ --muted: #475569;\r\n  --accent: #6366f1;\r\n  --ring: rgba(99,102,241,.25);\r\n
+    \ --shadow: 0 10px 25px rgba(2,6,23,.08);\r\n}\r\n\r\n* { box-sizing: border-box;
+    }\r\nhtml, body { height: 100%; }\r\nbody {\r\n  margin: 0;\r\n  font-family:
+    ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, \"Noto Sans\",
+    sans-serif;\r\n  color: var(--text);\r\n  background:\r\n    radial-gradient(1400px
+    600px at 0% -10%, #eef2ff 0%, transparent 60%),\r\n    radial-gradient(1200px
+    600px at 100% 110%, #e0f2fe 0%, transparent 60%),\r\n    var(--bg);\r\n  line-height:
+    1.6;\r\n}\r\n\r\n.hero {\r\n  text-align: center;\r\n  padding: 4rem 1rem 2rem;\r\n}\r\n.hero
+    h1 {\r\n  margin: 0 0 .25rem;\r\n  font-size: clamp(2rem, 3.5vw, 3rem);\r\n  letter-spacing:
+    .5px;\r\n}\r\n.hero p {\r\n  margin: 0;\r\n  color: var(--muted);\r\n}\r\n\r\n.container
+    {\r\n  max-width: 1000px;\r\n  margin: 0 auto;\r\n  padding: 1rem;\r\n}\r\n\r\n.grid
+    {\r\n  display: grid;\r\n  gap: 1rem;\r\n  grid-template-columns: repeat(auto-fit,
+    minmax(260px, 1fr));\r\n}\r\n\r\n.card {\r\n  background: var(--card);\r\n  border-radius:
+    14px;\r\n  padding: 1.2rem 1.25rem;\r\n  box-shadow: var(--shadow);\r\n  border:
+    1px solid #e5e7eb;\r\n}\r\n.card h2 { margin: 0 0 .25rem; font-size: 1.1rem; }\r\n.card
+    p { margin: 0; color: var(--muted); }\r\ncode { background: #f1f5f9; border-radius:
+    6px; padding: .1rem .35rem; }"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: web-content
